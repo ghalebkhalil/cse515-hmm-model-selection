@@ -233,27 +233,16 @@ To detect potentially redundant states, the code computes the KL divergence betw
 
 For two Gaussian components:
 
-$$
-\mathrm{KL}(\mathcal{N}_0 \,\|\, \mathcal{N}_1)
-=
-\frac{1}{2}
-\left(
-\mathrm{tr}(\Sigma_1^{-1}\Sigma_0)
-+
-(\mu_1-\mu_0)^\top \Sigma_1^{-1} (\mu_1-\mu_0)
-- d
-+
-\log\frac{\det \Sigma_1}{\det \Sigma_0}
-\right)
-$$
+KL(N₀ || N₁) = 0.5 * [
+    tr(Σ₁⁻¹ Σ₀)
+    + (μ₁ − μ₀)ᵀ Σ₁⁻¹ (μ₁ − μ₀)
+    − d
+    + log(det Σ₁ / det Σ₀)
+]
 
 Then it forms the **symmetric KL divergence**:
 
-$$
-\mathrm{symKL}(p,q)
-=
-\frac{1}{2}\big(\mathrm{KL}(p \| q) + \mathrm{KL}(q \| p)\big)
-$$
+symKL(p, q) = 0.5 * ( KL(p || q) + KL(q || p) )
 
 Low symmetric KL, similar transition rows, and small state occupancy can indicate a redundant hidden state.
 
