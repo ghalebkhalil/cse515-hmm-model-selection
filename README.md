@@ -4,6 +4,59 @@ Likelihood-Based Model Selection in High-Dimensional Hidden Markov Models
 **CSE 515 Project — University of Washington**  
 **Author:** Ghaleb Khalil
 
+## Data
+
+This project uses high-frequency limit order book (LOB) data from **Databento**.
+
+### Dataset Description
+
+- **Source:** Databento (XNAS ITCH)
+- **Schema:** MBP-10 (Market-by-Price, 10 levels)
+- **Date:** 2026-01-26
+- **Frequency:** Event-based (nanosecond timestamps)
+- **Number of observations:** 825,344
+- **Time range (UTC):**
+  - Start: 2026-01-26 09:00:00
+  - End:   2026-01-26 23:59:17
+
+### Data Structure
+
+The dataset contains a full 10-level limit order book snapshot at each event, including:
+
+- Event timestamps (`ts_event`)
+- Order actions (`action`)
+- Side (`bid` / `ask`)
+- Trade/quote updates (`price`, `size`)
+- Order book depth (`depth`)
+- Full LOB levels:
+  - `bid_px_00` to `bid_px_09`
+  - `ask_px_00` to `ask_px_09`
+  - corresponding sizes and counts
+
+In total:
+- **73 columns**
+- ~306 MB in memory when loaded
+
+---
+
+### Example Fields
+
+- `ts_event`: event timestamp (UTC)
+- `price`: trade or quote price
+- `size`: order size
+- `side`: bid or ask
+- `depth`: level of the book
+- `bid_px_00`, `ask_px_00`: best bid/ask prices
+- `bid_sz_00`, `ask_sz_00`: corresponding sizes
+
+---
+
+### Important Note
+
+The raw dataset is **not included in this repository** due to size constraints.
+
+---
+
 ## Overview
 
 This project develops a **Hidden Markov Model (HMM) from scratch** for likelihood-based model selection in high-dimensional time-series settings. The implementation focuses on **Gaussian-emission HMMs**, with an emphasis on:
