@@ -57,6 +57,43 @@ The raw dataset is **not included in this repository** due to size constraints.
 
 ---
 
+## How to Run
+
+1. **Install dependencies**
+   Make sure you have Python with:
+   - numpy
+   - scipy
+   - pandas
+   - matplotlib
+
+2. **Load data**
+   This project uses Databento LOB data (not included).
+   You must load your own dataset and preprocess it as described above.
+
+3. **Run core implementation**
+   Open and run:
+   - `HMM_functions.ipynb`
+   (this defines all core HMM functions)
+
+4. **Run experiments**
+   Then execute:
+
+   - `HMM_pipeline_3D.ipynb` → 3D feature experiment  
+   - `20D-AllStudy.ipynb` → main high-dimensional experiment  
+
+5. **Run diagnostics**
+   For stability and robustness analysis:
+
+   - `Stability-3D.ipynb`
+
+6. **Outputs**
+   The notebooks will generate:
+   - log-likelihood curves
+   - AIC/BIC plots
+   - state occupancy distributions
+   - transition matrices
+   - KL divergence diagnostics
+
 ## Overview
 
 This project develops a **Hidden Markov Model (HMM) from scratch** for likelihood-based model selection in high-dimensional time-series settings. The implementation focuses on **Gaussian-emission HMMs**, with an emphasis on:
